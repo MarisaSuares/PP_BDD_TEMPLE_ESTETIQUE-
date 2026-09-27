@@ -26,7 +26,7 @@ class Empleado(models.Model):
 
 
 class RegistroDeAsistencia(models.Model):
-    empleado = models.ForeignKey(Empleado, on_delete=models.CASCADE)
+    empleado = models.ForeignKey(Empleado, on_delete=models.PROTECT)
     fecha = models.DateTimeField(auto_now_add=True)
     horaEntrada = models.TimeField(auto_now_add=True)
     horaSalida = models.TimeField (null= True, blank=True)
@@ -38,7 +38,7 @@ class RegistroDeAsistencia(models.Model):
 
 
 class HistorialDeAcceso(models.Model):
-    empleado = models.ForeignKey(Empleado, on_delete=models.CASCADE)
+    empleado = models.ForeignKey(Empleado, on_delete=models.PROTECT)
     fechaHora = models.DateTimeField(auto_now_add=True)
 
 
